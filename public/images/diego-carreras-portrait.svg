@@ -1,0 +1,8 @@
+<svg width="900" height="1120" viewBox="0 0 900 1120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1120" fill="#090909"/>
+  <rect x="76" y="76" width="748" height="968" rx="36" fill="#121212" stroke="rgba(245,241,232,0.14)"/>
+  <circle cx="450" cy="388" r="168" fill="#1B1B1B"/>
+  <path d="M266 818C266 688.133 371.133 583 501 583H505C634.867 583 740 688.133 740 818V870H266V818Z" fill="#181818"/>
+  <text x="154" y="968" fill="#F5F1E8" font-size="54" font-family="Cormorant Garamond, serif">Portrait Placeholder</text>
+  <text x="154" y="1018" fill="#B3AB9A" font-size="22" font-family="Manrope, sans-serif">Diego Carreras / Creative Director</text>
+</svg>

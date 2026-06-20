@@ -1,0 +1,7 @@
+<svg width="1600" height="1120" viewBox="0 0 1600 1120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1120" fill="#090909"/>
+  <path d="M0 846C212 742 466 720 742 780C996 834 1274 932 1600 820V1120H0V846Z" fill="#151515"/>
+  <rect x="124" y="112" width="1352" height="816" rx="34" stroke="rgba(245,241,232,0.12)"/>
+  <text x="164" y="228" fill="#C7A46A" font-size="22" font-family="Manrope, sans-serif">SHOWROOM DETAIL</text>
+  <text x="164" y="316" fill="#F5F1E8" font-size="64" font-family="Cormorant Garamond, serif">A modular environment built for launches, meetings and campaign photography.</text>
+</svg>

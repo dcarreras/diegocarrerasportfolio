@@ -1,0 +1,7 @@
+<svg width="1600" height="1120" viewBox="0 0 1600 1120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1120" fill="#050505"/>
+  <rect x="98" y="98" width="1404" height="924" rx="30" stroke="rgba(245,241,232,0.16)"/>
+  <path d="M254 850C472 576 760 434 1138 404C1220 398 1302 400 1380 410V938H232L254 850Z" fill="#161616"/>
+  <text x="220" y="252" fill="#C7A46A" font-size="22" font-family="Manrope, sans-serif">WORKFLOW</text>
+  <text x="220" y="334" fill="#F5F1E8" font-size="60" font-family="Cormorant Garamond, serif">Prompt design, art direction and post-production calibrated for brand realism.</text>
+</svg>

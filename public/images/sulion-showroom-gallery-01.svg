@@ -1,0 +1,8 @@
+<svg width="1600" height="1120" viewBox="0 0 1600 1120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1120" fill="#080808"/>
+  <rect x="84" y="84" width="1432" height="952" rx="40" fill="#111111" stroke="rgba(245,241,232,0.12)"/>
+  <rect x="230" y="198" width="1140" height="500" rx="20" fill="#181818"/>
+  <circle cx="560" cy="862" r="128" fill="#1F1F1F"/>
+  <circle cx="1086" cy="862" r="128" fill="#C7A46A" fill-opacity="0.18"/>
+  <text x="228" y="846" fill="#F5F1E8" font-size="54" font-family="Cormorant Garamond, serif">Light choreography, circulation and retail display</text>
+</svg>
