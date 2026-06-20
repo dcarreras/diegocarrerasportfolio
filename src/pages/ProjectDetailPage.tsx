@@ -3,10 +3,13 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { Seo } from "../components/ui/Seo";
 import { ProjectNavigation } from "../components/projects/ProjectNavigation";
 import { buttonStyles } from "../components/ui/Button";
+import { getLocalizedText } from "../i18n";
+import { useLanguage } from "../i18n/LanguageProvider";
 import { cn } from "../lib/utils";
 import { getProjectBySlug, sortedProjects } from "../data/projects";
 
 export function ProjectDetailPage() {
+  const { language } = useLanguage();
   const { slug } = useParams<{ slug: string }>();
 
   if (!slug) {
@@ -42,7 +45,10 @@ export function ProjectDetailPage() {
 
   return (
     <>
-      <Seo title={project.title} description={project.summary} />
+      <Seo
+        title={getLocalizedText(project.title, language)}
+        description={getLocalizedText(project.summary, language)}
+      />
 
       <section className="section-shell pt-16 sm:pt-20">
         <div className="mb-8">
@@ -59,9 +65,9 @@ export function ProjectDetailPage() {
               <span>{project.year}</span>
             </div>
             <h1 className="mt-5 max-w-3xl text-[2.6rem] font-medium uppercase leading-[1] tracking-[-0.05em] text-ink sm:text-[3.6rem]">
-              {project.title}
+              {getLocalizedText(project.title, language)}
             </h1>
-            <p className="mt-6 max-w-xl text-sm leading-7 text-muted sm:text-base">{project.intro}</p>
+            <p className="mt-6 max-w-xl text-sm leading-7 text-muted sm:text-base">{getLocalizedText(project.intro, language)}</p>
           </div>
 
           <div className="grid gap-6 text-sm leading-7 text-muted">
@@ -70,14 +76,19 @@ export function ProjectDetailPage() {
                 <p className="text-[0.68rem] font-medium uppercase tracking-[0.14em] text-ink">Project info</p>
                 <div className="mt-3 grid gap-3">
                   {project.facts.map((fact) => (
-                    <div key={`${fact.label}-${fact.value}`} className="grid gap-1 sm:grid-cols-[6rem_1fr] sm:gap-4">
-                      <p className="text-[0.68rem] font-medium uppercase tracking-[0.14em] text-muted">{fact.label}</p>
+                    <div
+                      key={`${getLocalizedText(fact.label, language)}-${getLocalizedText(fact.value, language)}`}
+                      className="grid gap-1 sm:grid-cols-[6rem_1fr] sm:gap-4"
+                    >
+                      <p className="text-[0.68rem] font-medium uppercase tracking-[0.14em] text-muted">
+                        {getLocalizedText(fact.label, language)}
+                      </p>
                       {fact.href ? (
                         <a href={fact.href} target="_blank" rel="noreferrer" className="hover:text-ink">
-                          {fact.value}
+                          {getLocalizedText(fact.value, language)}
                         </a>
                       ) : (
-                        <p>{fact.value}</p>
+                        <p>{getLocalizedText(fact.value, language)}</p>
                       )}
                     </div>
                   ))}
@@ -95,7 +106,7 @@ export function ProjectDetailPage() {
                       download={resource.download}
                       className={buttonStyles("secondary", "md")}
                     >
-                      {resource.label}
+                      {getLocalizedText(resource.label, language)}
                     </a>
                   ))}
                 </div>
@@ -103,15 +114,15 @@ export function ProjectDetailPage() {
             ) : null}
             <div>
               <p className="text-[0.68rem] font-medium uppercase tracking-[0.14em] text-ink">Services</p>
-              <p className="mt-3">{project.services.join(", ")}</p>
+              <p className="mt-3">{project.services.map((service) => getLocalizedText(service, language)).join(", ")}</p>
             </div>
             <div>
               <p className="text-[0.68rem] font-medium uppercase tracking-[0.14em] text-ink">Challenge</p>
-              <p className="mt-3">{project.challenge}</p>
+              <p className="mt-3">{getLocalizedText(project.challenge, language)}</p>
             </div>
             <div>
               <p className="text-[0.68rem] font-medium uppercase tracking-[0.14em] text-ink">Result</p>
-              <p className="mt-3">{project.result}</p>
+              <p className="mt-3">{getLocalizedText(project.result, language)}</p>
             </div>
           </div>
         </div>
@@ -120,8 +131,8 @@ export function ProjectDetailPage() {
       <section className="section-shell pt-0">
         <div className="grid gap-5">
           <figure className="grid gap-3">
-            <img src={selectedImage.src} alt={selectedImage.alt} className="aspect-[16/10] w-full object-cover" />
-            <figcaption className="max-w-2xl text-sm leading-7 text-muted">{selectedImage.caption}</figcaption>
+            <img src={selectedImage.src} alt={getLocalizedText(selectedImage.alt, language)} className="aspect-[16/10] w-full object-cover" />
+            <figcaption className="max-w-2xl text-sm leading-7 text-muted">{getLocalizedText(selectedImage.caption, language)}</figcaption>
           </figure>
           <div className="grid grid-cols-3 gap-3 md:grid-cols-6">
             {projectImages.map((image, index) => (
@@ -135,7 +146,7 @@ export function ProjectDetailPage() {
                 )}
                 aria-label={`View image ${index + 1} of ${imageCount}`}
               >
-                <img src={image.src} alt={image.alt} className="aspect-[4/3] w-full object-cover" loading="lazy" />
+                <img src={image.src} alt={getLocalizedText(image.alt, language)} className="aspect-[4/3] w-full object-cover" loading="lazy" />
               </button>
             ))}
           </div>

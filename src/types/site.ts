@@ -1,8 +1,10 @@
 import type { LocalizedText } from "../i18n";
 import type { ProjectCategory, ProjectFilter } from "./project";
 
+export type TextValue = LocalizedText | string;
+
 export interface NavigationItem {
-  label: LocalizedText;
+  label: TextValue;
   href: string;
 }
 
@@ -14,25 +16,31 @@ export interface Service {
     | "brand-activation"
     | "ai-in-creativity"
     | "innovation-consulting";
-  title: LocalizedText;
-  shortDescription: LocalizedText;
-  longDescription: LocalizedText;
+  title: TextValue;
+  shortDescription: TextValue;
+  longDescription: TextValue;
+}
+
+export interface ServiceItem {
+  slug: Service["slug"];
+  title: TextValue;
+  description: TextValue;
 }
 
 export interface MetricItem {
   value: string;
-  label: LocalizedText;
+  label: TextValue;
 }
 
 export interface SocialLink {
-  label: LocalizedText;
+  label: TextValue;
   href: string;
   external?: boolean;
 }
 
 export interface SiteMeta {
   title: string;
-  description: LocalizedText;
+  description: TextValue;
   siteUrl: string;
   socialImage: string;
 }
@@ -40,7 +48,7 @@ export interface SiteMeta {
 export interface ContactDetails {
   email: string;
   phone: string;
-  location: LocalizedText;
+  location: TextValue;
 }
 
 export type ProjectCategoryFilters = readonly ProjectFilter[];

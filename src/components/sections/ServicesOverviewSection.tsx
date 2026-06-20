@@ -1,4 +1,6 @@
 import { homeServiceHighlights } from "../../data/site";
+import { getLocalizedText } from "../../i18n";
+import { useLanguage } from "../../i18n/LanguageProvider";
 
 function ServiceIcon({ index }: { index: number }) {
   const icons = [
@@ -24,6 +26,8 @@ function ServiceIcon({ index }: { index: number }) {
 }
 
 export function ServicesOverviewSection() {
+  const { language } = useLanguage();
+
   return (
     <section className="section-light">
       <div className="section-shell border-x border-line bg-paper">
@@ -41,12 +45,12 @@ export function ServicesOverviewSection() {
         <div className="mt-12 grid gap-10 md:grid-cols-2 xl:grid-cols-5">
           {homeServiceHighlights.map((service, index) => (
             <article
-              key={service.title}
+              key={service.slug}
               className={index === 0 ? "motion-fade-up motion-delay-1" : index === 1 ? "motion-fade-up motion-delay-2" : index === 2 ? "motion-fade-up motion-delay-3" : "motion-fade-up motion-delay-4"}
             >
               <div className="mb-5">{ServiceIcon({ index })}</div>
-              <h3 className="text-base font-medium tracking-[-0.03em] text-ink">{service.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-muted">{service.description}</p>
+              <h3 className="text-base font-medium tracking-[-0.03em] text-ink">{getLocalizedText(service.title, language)}</h3>
+              <p className="mt-3 text-sm leading-7 text-muted">{getLocalizedText(service.description, language)}</p>
             </article>
           ))}
         </div>

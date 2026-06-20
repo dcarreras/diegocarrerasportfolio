@@ -6,11 +6,15 @@ import { ServicesOverviewSection } from "../components/sections/ServicesOverview
 import { StudioHighlightSection } from "../components/sections/StudioHighlightSection";
 import { Seo } from "../components/ui/Seo";
 import { siteMeta } from "../data/site";
+import { getLocalizedText } from "../i18n";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export function HomePage() {
+  const { language } = useLanguage();
+
   return (
     <>
-      <Seo title="Creative Director" description={siteMeta.description} />
+      <Seo title="Creative Director" description={getLocalizedText(siteMeta.description, language)} />
       <HeroSection />
       <ServicesOverviewSection />
       <FeaturedProjectsSection />

@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { getLocalizedText } from "../../i18n";
+import { useLanguage } from "../../i18n/LanguageProvider";
 import type { Project } from "../../types/project";
 import { cn } from "../../lib/utils";
 
@@ -10,6 +12,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, showSummary = true, tone = "light", variant = "default" }: ProjectCardProps) {
+  const { language } = useLanguage();
   const projectLabel =
     project.category === "Spaces"
       ? "Retail Spaces"
@@ -37,10 +40,10 @@ export function ProjectCard({ project, showSummary = true, tone = "light", varia
             "overflow-hidden border border-white/12 bg-white/[0.03] transition duration-300 group-hover:-translate-y-1 group-hover:border-white/24 group-hover:bg-white/[0.05]"
         )}
       >
-        <img
-          src={project.coverImage.src}
-          alt={project.coverImage.alt}
-          className={cn(
+          <img
+            src={project.coverImage.src}
+            alt={getLocalizedText(project.coverImage.alt, language)}
+            className={cn(
             "w-full object-cover transition duration-500 group-hover:opacity-90",
             variant === "carousel" ? "aspect-[5/4] group-hover:scale-[1.02]" : "aspect-[4/3]"
           )}
@@ -59,7 +62,7 @@ export function ProjectCard({ project, showSummary = true, tone = "light", varia
               tone === "dark" ? "text-white" : "text-ink"
             )}
           >
-            {project.title}
+            {getLocalizedText(project.title, language)}
           </h3>
           {showSummary ? (
             <p
@@ -68,7 +71,7 @@ export function ProjectCard({ project, showSummary = true, tone = "light", varia
                 tone === "dark" ? "text-white/76" : "text-muted"
               )}
             >
-              {project.summary}
+              {getLocalizedText(project.summary, language)}
             </p>
           ) : null}
         </div>

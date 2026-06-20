@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { aboutPreview } from "../../data/site";
+import { getLocalizedText } from "../../i18n";
+import { useLanguage } from "../../i18n/LanguageProvider";
 import { buttonStyles } from "../ui/Button";
 
 export function AboutPreviewSection() {
+  const { language } = useLanguage();
+
   return (
     <section className="section-dark">
       <div className="container-shell">
@@ -19,7 +23,7 @@ export function AboutPreviewSection() {
             <h2 className="mt-6 text-[2rem] font-medium leading-[1.08] tracking-[-0.05em] text-white sm:text-[2.7rem]">
               Creative Director with 10+ years of experience in branding, spaces, product and innovation.
             </h2>
-            <p className="mt-6 max-w-xl text-sm leading-7 text-white/74 sm:text-base">{aboutPreview}</p>
+            <p className="mt-6 max-w-xl text-sm leading-7 text-white/74 sm:text-base">{getLocalizedText(aboutPreview, language)}</p>
             <p className="mt-4 max-w-xl text-sm leading-7 text-white/74 sm:text-base">
               I combine strategic thinking, aesthetic sensitivity and emerging technologies to develop relevant solutions that
               generate real impact.

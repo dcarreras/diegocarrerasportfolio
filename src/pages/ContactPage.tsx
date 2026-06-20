@@ -2,8 +2,12 @@ import { ContactForm } from "../components/ui/ContactForm";
 import { PageIntro } from "../components/ui/PageIntro";
 import { Seo } from "../components/ui/Seo";
 import { contactDetails, socialPlaceholders } from "../data/site";
+import { getLocalizedText } from "../i18n";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export function ContactPage() {
+  const { language } = useLanguage();
+
   return (
     <>
       <Seo
@@ -42,13 +46,13 @@ export function ContactPage() {
             </div>
             <div>
               <p className="eyebrow text-muted">Location</p>
-              <p className="mt-2 text-sm text-ink sm:text-base">{contactDetails.location}</p>
+              <p className="mt-2 text-sm text-ink sm:text-base">{getLocalizedText(contactDetails.location, language)}</p>
             </div>
             <div>
               <p className="eyebrow text-muted">Social</p>
               <div className="mt-3 flex flex-wrap gap-4 text-[0.72rem] uppercase tracking-[0.12em] text-muted">
                 {socialPlaceholders.map((social) => (
-                  <span key={social.label}>{social.label}</span>
+                  <span key={social.href}>{getLocalizedText(social.label, language)}</span>
                 ))}
               </div>
             </div>

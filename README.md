@@ -28,23 +28,24 @@ npm run dev
 npm run build
 ```
 
-The production build output is generated in `dist/` when the build passes.
+The production build output is generated in `dist/`.
 
 ## Current status
 
 - Local development works with `npm run dev`.
-- The production build is currently failing because of TypeScript and content-model mismatches.
-- Cloudflare deployment is intentionally deferred until the build is fixed.
+- The production build works with `npm run build`.
+- The repository is ready for automatic Cloudflare Pages deployments from `main`.
 
 ## Deploy to Cloudflare Pages
 
-This section is the intended deployment target once the build issues are resolved.
-
 Use the following settings in Cloudflare Pages:
 
+- Production branch: `main`
 - Framework preset: `None`
 - Build command: `npm run build`
 - Build output directory: `dist`
+- Root directory: leave empty
+- Environment variables: none required
 - Node version: any current LTS compatible with Vite 5
 
 ## SPA routing on Cloudflare Pages

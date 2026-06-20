@@ -3,8 +3,12 @@ import { MetricsSection } from "../components/ui/MetricsSection";
 import { PageIntro } from "../components/ui/PageIntro";
 import { Seo } from "../components/ui/Seo";
 import { aboutBio, metrics } from "../data/site";
+import { getLocalizedText } from "../i18n";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export function AboutPage() {
+  const { language } = useLanguage();
+
   return (
     <>
       <Seo
@@ -29,7 +33,7 @@ export function AboutPage() {
             <div className="grid gap-8 lg:grid-cols-[0.56fr_0.44fr]">
               <div className="space-y-5 text-sm leading-7 text-muted sm:text-base">
                 {aboutBio.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={getLocalizedText(paragraph, language)}>{getLocalizedText(paragraph, language)}</p>
                 ))}
               </div>
               <div className="space-y-6">

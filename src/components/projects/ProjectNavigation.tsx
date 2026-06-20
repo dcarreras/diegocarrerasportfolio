@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { getLocalizedText } from "../../i18n";
+import { useLanguage } from "../../i18n/LanguageProvider";
 import type { Project } from "../../types/project";
 import { cn } from "../../lib/utils";
 
@@ -14,6 +16,8 @@ function ProjectLink({
   direction: "Previous" | "Next";
   project?: Project;
 }) {
+  const { language } = useLanguage();
+
   if (!project) {
     return <div className="hidden border border-dashed border-line p-8 text-sm text-muted lg:block">No {direction.toLowerCase()} project</div>;
   }
@@ -28,7 +32,7 @@ function ProjectLink({
     >
       <p className="text-[0.68rem] uppercase tracking-[0.14em] text-muted">{direction} project</p>
       <div>
-        <h3 className="text-2xl font-medium uppercase tracking-[-0.04em] text-ink">{project.title}</h3>
+        <h3 className="text-2xl font-medium uppercase tracking-[-0.04em] text-ink">{getLocalizedText(project.title, language)}</h3>
         <p className="mt-3 text-sm text-muted">
           {project.category} / {project.year}
         </p>

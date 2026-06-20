@@ -5,6 +5,7 @@ import type {
   ProjectCategories,
   ProjectCategoryFilters,
   Service,
+  ServiceItem,
   SiteMeta,
   SocialLink
 } from "../types/site";
@@ -152,7 +153,17 @@ export const services: Service[] = [
   }
 ];
 
-export const homeServiceHighlights = services;
+export const homeServiceHighlights: ServiceItem[] = services.map((service) => ({
+  slug: service.slug,
+  title: service.title,
+  description: service.shortDescription
+}));
+
+export const serviceItems: ServiceItem[] = services.map((service) => ({
+  slug: service.slug,
+  title: service.title,
+  description: service.longDescription
+}));
 
 export const metrics: MetricItem[] = [
   { value: "10+", label: { es: "Años de experiencia", en: "Years of experience" } },
@@ -167,6 +178,7 @@ export const contactDetails: ContactDetails = {
 };
 
 export const socialLinks = siteConfig.socialLinks;
+export const socialPlaceholders = socialLinks;
 
 export const aboutBio = [
   {

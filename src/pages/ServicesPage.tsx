@@ -18,7 +18,7 @@ export function ServicesPage() {
       <section className="section-shell pt-0 pb-20 sm:pb-24">
         <div className="grid gap-6 lg:grid-cols-2">
           {serviceItems.map((service, index) => (
-            <ServiceCard key={service.title} index={index} service={service} />
+            <ServiceCard key={service.slug} index={index} service={service} />
           ))}
         </div>
       </section>

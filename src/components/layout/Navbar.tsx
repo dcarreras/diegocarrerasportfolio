@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { navigationItems } from "../../data/site";
+import { getLocalizedText } from "../../i18n";
+import { useLanguage } from "../../i18n/LanguageProvider";
 import { cn } from "../../lib/utils";
 import { BrandMark } from "../ui/BrandMark";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { language } = useLanguage();
 
   useEffect(() => {
     setIsOpen(false);
@@ -53,7 +56,7 @@ export function Navbar() {
                     )
                   }
                 >
-                  {item.label}
+                  {getLocalizedText(item.label, language)}
                 </NavLink>
               ))}
             </nav>

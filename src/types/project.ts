@@ -1,39 +1,41 @@
 import type { LocalizedText } from "../i18n";
 
+export type TextValue = LocalizedText | string;
+
 export type ProjectCategory = "Branding" | "Spaces" | "AI" | "Editorial" | "Product";
 
 export type ProjectFilter = "All" | ProjectCategory;
 
 export interface ProjectImage {
   src: string;
-  alt: LocalizedText;
-  caption: LocalizedText;
+  alt: TextValue;
+  caption: TextValue;
 }
 
 export interface ProjectFact {
-  label: LocalizedText;
-  value: LocalizedText;
+  label: TextValue;
+  value: TextValue;
   href?: string;
 }
 
 export interface ProjectResource {
-  label: LocalizedText;
+  label: TextValue;
   href: string;
   download?: string;
 }
 
 export interface Project {
   slug: string;
-  title: LocalizedText;
+  title: TextValue;
   category: ProjectCategory;
   year: string;
-  summary: LocalizedText;
-  intro: LocalizedText;
+  summary: TextValue;
+  intro: TextValue;
   facts?: ProjectFact[];
   resources?: ProjectResource[];
-  services: LocalizedText[];
-  challenge: LocalizedText;
-  result: LocalizedText;
+  services: TextValue[];
+  challenge: TextValue;
+  result: TextValue;
   coverImage: ProjectImage;
   gallery: ProjectImage[];
   featured: boolean;
