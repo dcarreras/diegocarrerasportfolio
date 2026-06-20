@@ -88,13 +88,6 @@ export const projects: Project[] = [
       { label: "Role", value: "Creative Direction & Branding" },
       { label: "Collaboration", value: "Reserva Coyote", href: "https://reservacoyote.com" }
     ],
-    resources: [
-      {
-        label: "Download brandbook",
-        href: "/downloads/brandbook-sulion.pdf",
-        download: "brandbook-sulion.pdf"
-      }
-    ],
     services: ["Creative Direction", "Branding", "Verbal Framing", "Brand System"],
     challenge:
       "Sulion needed an identity that felt current without forcing novelty, preserving the trust and product honesty the brand had already earned while sharpening how it presented itself.",
